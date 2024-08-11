@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Create three columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 400px;
+}
+
+.column-left {
+    width: 15%;
+    border-right: solid 1px black;
+}
+.column-central {
+    width: 65%;
+}
+.column-right {
+    width: 20%;
+    border-left: solid 1px black;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style buttons into column-left */
+.column-left-button {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+/* Plant page */
+.plant-item {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.plant-item:hover {
+    background-color: yellow;
+}
