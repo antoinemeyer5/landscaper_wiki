@@ -1,7 +1,8 @@
-# folders
-debug/
-dist/
-target/
+# client
+client/dist/
+client/target/
+client/Cargo.lock
 
-# file
-Cargo.lock
+# server
+server/target/
+server/Cargo.lock

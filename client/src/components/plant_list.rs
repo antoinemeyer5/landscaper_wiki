@@ -13,7 +13,6 @@ pub fn PlantList(PlantsListProps { plants, on_hover }: &PlantsListProps) -> Html
 
     plants.iter().map(|plant: &Plant| {
 
-
         let on_select = {
             let on_hover = on_hover.clone();
             let plant: Plant = plant.clone();

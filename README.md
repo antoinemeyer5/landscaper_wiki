@@ -12,25 +12,41 @@ when to water tomatoes, tell us when you've planted tulips, know when to clean
 up strawberry cuttings, etc.
 
 ## Stack
-Frontend in Rust (Yew).
+- Frontend (`client`): written in Rust using Yew
+- Backend (`server`): written in Rust using Actix-Web
 
 ## Requirements
+### Commun
 ```bash
 # Install Rust (rustup 1.27.1)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
+```
+### Frontend
+```bash
 # Install WebAssembly target
 rustup target add wasm32-unknown-unknown
 
 # Install Trunk (trunk 0.20.2)
 cargo install --locked trunk
-
-# Clone this repository
-git clone git@github.com:antoinemeyer5/landscaper.git
 ```
 
+## Dependencies
+### Frontend
+- `yew`: Rust / Wasm (WebAssembly) framework for creating reliable and
+    efficient web applications.
+- `yew-router`: A routing library for the Yew frontend framework.
+### Backend
+- `actix-web`: Actix Web is a powerful, pragmatic, and extremely fast web
+    framework for Rust.
+
 ## Usage
+### Frontend (http://127.0.0.1:8080/)
 ```bash
-# Start the development server
-landscaper % trunk serve --open
+landscaper % cd client
+client % trunk serve
+```
+### Backend (http://127.0.0.1:8090/)
+```bash
+landscaper % cd server
+server % cargo run
 ```
