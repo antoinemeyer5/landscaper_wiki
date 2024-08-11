@@ -4,7 +4,7 @@ use crate::models::plant::Plant;
 use crate::components::plant_list::PlantList;
 
 #[function_component]
-pub fn PlantPage() -> Html {
+pub fn PagePlants() -> Html {
     let plants: Vec<Plant> = vec![
         Plant {
             id: 1,

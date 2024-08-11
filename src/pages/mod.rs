@@ -1,13 +1,13 @@
-pub mod field_page;
-pub mod home_page;
-pub mod plant_page;
+pub mod field;
+pub mod home;
+pub mod plants;
 
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use field_page::FieldPage;
-use home_page::HomePage;
-use plant_page::PlantPage;
+use field::PageField;
+use home::PageHome;
+use plants::PagePlants;
 
 use crate::components::{
     header::Header, left_column::LeftColumn,
@@ -16,11 +16,11 @@ use crate::components::{
 #[derive(Routable, Debug, Clone, PartialEq, Eq)]
 pub enum AppRoute {
     #[at("/field")]
-    FieldPage,
+    PageField,
     #[at("/")]
-    HomePage,
+    PageHome,
     #[at("/plants")]
-    PlantPage,
+    PagePlants,
     #[not_found]
     #[at("/404")]
     NotFoundPage,
@@ -28,9 +28,9 @@ pub enum AppRoute {
 
 pub fn switch(route: AppRoute) -> Html {
     match route {
-        AppRoute::FieldPage => html! { <FieldPage /> },
-        AppRoute::HomePage => html! { <HomePage /> },
-        AppRoute::PlantPage => html! { <PlantPage /> },
+        AppRoute::PageField => html! { <PageField /> },
+        AppRoute::PageHome => html! { <PageHome /> },
+        AppRoute::PagePlants => html! { <PagePlants /> },
         AppRoute::NotFoundPage => html! {
             <div class="column column-central"> {"Page not found"} </div>
         },
