@@ -9,9 +9,7 @@ use field::PageField;
 use home::PageHome;
 use plants::PagePlants;
 
-use crate::components::{
-    header::Header, left_column::LeftColumn,
-};
+use crate::components::left_column::LeftColumn;
 
 #[derive(Routable, Debug, Clone, PartialEq, Eq)]
 pub enum AppRoute {
@@ -41,7 +39,6 @@ pub fn switch(route: AppRoute) -> Html {
 pub fn App() -> Html {
     html! {
         <HashRouter>
-            <Header />
             <div class="row">
                 <LeftColumn />
                 <Switch<AppRoute> render={switch} />
