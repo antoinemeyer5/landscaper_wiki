@@ -11,6 +11,9 @@ Plant management application for your garden. Know when to harvest carrots,
 when to water tomatoes, tell us when you've planted tulips, know when to clean
 up strawberry cuttings, etc.
 
+## Modelisation
+A plant is on a plot of land. Several plots make up a field.
+
 ## Stack
 Written in [Rust](https://www.rust-lang.org/) using
 [egui](https://www.egui.rs/).
