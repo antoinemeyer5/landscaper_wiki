@@ -1,8 +1,2 @@
-# client
-client/dist/
-client/target/
-client/Cargo.lock
-
-# server
-server/target/
-server/Cargo.lock
+/target
+Cargo.lock
