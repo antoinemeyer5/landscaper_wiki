@@ -14,9 +14,14 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
             egui::ScrollArea::vertical().show(ui, |ui| {
                 // display plants
                 for plant in &app.plants {
-                    ui.label(format!("{} - {}", plant.id, plant.name));
+                    let label = ui.label(
+                        format!("{} - {} ℹ", plant.id, plant.name));
+                    if label.hovered() {
+                        app.details = plant.details.clone();
+                    };
                     ui.separator();
                 }
+
                 // add
                 ui.vertical_centered(|ui| {
                     if ui.button("Add").clicked() {

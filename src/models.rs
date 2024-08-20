@@ -13,4 +13,5 @@ pub struct Plant {
 pub struct Land {
     pub id: usize,
     pub size: u32,
+    pub details: String,
 }

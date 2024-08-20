@@ -9,7 +9,7 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
         .width_range(80.0..=200.0)
         .show_inside(ui, |ui| {
             ui.vertical_centered(|ui| {
-                ui.heading("Details");
+                ui.heading("ℹ");
             });
             egui::ScrollArea::vertical().show(ui, |ui| {
                 ui.label(format!("{}", &app.details));
