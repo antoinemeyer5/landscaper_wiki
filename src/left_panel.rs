@@ -14,23 +14,26 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
             egui::ScrollArea::vertical().show(ui, |ui| {
                 // display plants
                 for plant in &app.plants {
-                    let label = ui.label(
-                        format!("{} - {} ℹ", plant.id, plant.name));
-                    if label.hovered() {
-                        app.details = plant.details.clone();
+                    if ui
+                        .button(format!("{} {}", plant.emoji, plant.name))
+                        .hovered()
+                    {
+                        app.details = String::from(format!(
+                            "🌱 Plant\nEmoji: {}\nName: {}",
+                            plant.emoji, plant.name
+                        ));
                     };
+
                     ui.separator();
                 }
 
                 // add
                 ui.vertical_centered(|ui| {
-                    if ui.button("Add").clicked() {
-                        let new_plant = Plant {
-                            id: app.plants.len(),
-                            name: String::from("Carrot"),
-                            details: String::from("Details"),
-                        };
-                        app.plants.push(new_plant);
+                    ui.text_edit_singleline(&mut app.new_plant_name);
+                    if ui.button("➕").clicked() {
+                        let new_plant = Plant::new("🌲", app.new_plant_name.as_str());
+                        app.plants.push(new_plant); // add new plant
+                        app.new_plant_name = String::from(""); // clean
                     }
                 });
             });
