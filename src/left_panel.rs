@@ -12,24 +12,39 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                 ui.heading("Plants");
             });
             egui::ScrollArea::vertical().show(ui, |ui| {
-                // display plants
-                for plant in &app.plants {
-                    if ui
-                        .button(format!("{} {}", plant.emoji, plant.name))
-                        .hovered()
-                    {
-                        app.details = String::from(format!(
-                            "🌱 Plant\nEmoji: {}\nName: {}",
-                            plant.emoji, plant.name
-                        ));
-                    };
+                // display plants that we didn't delete
+                app.plants.retain(|plant| {
+                    // keep or remove plant
+                    let mut delete = false;
 
+                    // draw
+                    ui.horizontal(|ui| {
+                        let button = ui.button(format!("{} {}", plant.emoji, plant.name));
+                        let remove = ui.button("➖");
+
+                        // details
+                        if button.hovered() {
+                            app.details = String::from(format!(
+                                "🌱 Plant\nEmoji: {}\nName: {}",
+                                plant.emoji, plant.name
+                            ));
+                        };
+                        // remove this plant
+                        if remove.clicked() {
+                            delete = true;
+                        }
+                    });
                     ui.separator();
-                }
+                    !delete
+                });
 
                 // add
-                ui.vertical_centered(|ui| {
-                    ui.text_edit_singleline(&mut app.new_plant_name);
+                ui.horizontal(|ui| {
+                    ui.add_sized(
+                        [100., 20.],
+                        egui::TextEdit::singleline(&mut app.new_plant_name),
+                    );
+
                     if ui.button("➕").clicked() {
                         let new_plant = Plant::new("🌲", app.new_plant_name.as_str());
                         app.plants.push(new_plant); // add new plant
