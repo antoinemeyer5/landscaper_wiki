@@ -22,6 +22,7 @@ impl Plant {
 pub struct Land {
     pub height: f32,
     pub width: f32,
+    pub area: f32,
     pub plant: Plant,
 }
 
@@ -30,7 +31,15 @@ impl Land {
         Self {
             height,
             width,
+            area: height * width,
             plant: Plant::new("❌", "nothing"),
         }
+    }
+
+    pub fn details(land: &Land) -> String {
+        return String::from(format!(
+            "🌾 Land\nSize(h×w): {}m×{}m\nArea: {}m²\nPlant: {}{}",
+            land.height, land.width, land.area, land.plant.emoji, land.plant.name
+        ));
     }
 }
