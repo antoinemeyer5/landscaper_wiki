@@ -12,8 +12,8 @@ impl Default for MyApp {
     fn default() -> Self {
         Self {
             plants: vec![
-                Plant::new("🍎", "Apple"),
-                Plant::new("🍚", "Rice"),
+                Plant::new("🍎", "Apple", 2, 2.5),
+                Plant::new("🍚", "Rice", 6, 1.),
             ],
             new_plant_name: String::from(""),
             field: vec![

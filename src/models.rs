@@ -8,14 +8,25 @@ pub struct MyApp {
 pub struct Plant {
     pub emoji: String,
     pub name: String,
+    pub quantity: u32,
+    pub price: f32,
 }
 
 impl Plant {
-    pub fn new(emoji: &str, name: &str) -> Self {
+    pub fn new(emoji: &str, name: &str, quantity: u32, price: f32) -> Self {
         Self {
             emoji: String::from(emoji),
             name: String::from(name),
+            quantity,
+            price,
         }
+    }
+
+    pub fn details(plant: &Plant) -> String {
+        return String::from(format!(
+            "🌱 Plant\nEmoji: {}\nName: {}\nQuantity: {} (per m²)\nPrice: {}$ (per unit)",
+            plant.emoji, plant.name, plant.quantity, plant.price
+        ));
     }
 }
 
@@ -32,7 +43,7 @@ impl Land {
             height,
             width,
             area: height * width,
-            plant: Plant::new("❌", "nothing"),
+            plant: Plant::new("❌", "nothing", 0, 0.0),
         }
     }
 

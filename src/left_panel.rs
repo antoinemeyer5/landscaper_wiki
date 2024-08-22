@@ -24,10 +24,7 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
 
                         // details
                         if button.hovered() {
-                            app.details = String::from(format!(
-                                "🌱 Plant\nEmoji: {}\nName: {}",
-                                plant.emoji, plant.name
-                            ));
+                            app.details = Plant::details(plant);
                         };
                         // remove this plant
                         if remove.clicked() {
@@ -46,7 +43,7 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                     );
 
                     if ui.button("➕").clicked() {
-                        let new_plant = Plant::new("🌲", app.new_plant_name.as_str());
+                        let new_plant = Plant::new("🌲", app.new_plant_name.as_str(), 1, 1.);
                         app.plants.push(new_plant); // add new plant
                         app.new_plant_name = String::from(""); // clean
                     }
