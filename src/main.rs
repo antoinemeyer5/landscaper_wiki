@@ -1,6 +1,7 @@
 use eframe::*;
 use egui::CentralPanel;
 
+mod bottom_panel;
 mod central_panel;
 mod left_panel;
 mod right_panel;
@@ -33,6 +34,7 @@ impl eframe::App for MyApp {
     // call every frame
     fn update(&mut self, ctx: &egui::Context, _frame: &mut Frame) {
         CentralPanel::default().show(ctx, |ui| {
+            bottom_panel::display(self, ui);
             left_panel::display(self, ui);
             right_panel::display(self, ui);
             central_panel::display(self, ui);
