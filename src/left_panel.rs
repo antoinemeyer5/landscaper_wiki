@@ -39,11 +39,11 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                 ui.horizontal(|ui| {
                     ui.add_sized(
                         [100., 20.],
-                        egui::TextEdit::singleline(&mut app.new_plant_name),
+                        egui::TextEdit::singleline(&mut app.new_plant_name).char_limit(8),
                     );
 
                     if ui.button("➕").clicked() {
-                        let new_plant = Plant::new("🌲", app.new_plant_name.as_str(), 1, 1.);
+                        let new_plant = Plant::new("🌲", &app.new_plant_name.as_str(), 1, 1.);
                         app.plants.push(new_plant); // add new plant
                         app.new_plant_name = String::from(""); // clean
                     }
