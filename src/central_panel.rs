@@ -1,6 +1,6 @@
 use egui::Ui;
 
-use crate::models::{Land, MyApp};
+use crate::models::MyApp;
 
 pub fn display(app: &mut MyApp, ui: &mut Ui) {
     egui::CentralPanel::default().show_inside(ui, |ui| {
@@ -15,7 +15,8 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                         let button =
                             ui.add_sized([land.width, land.height], egui::Button::new("🌾"));
                         if button.hovered() {
-                            app.details = Land::details(land);
+                            //app.details = (Land::details(land), 0);
+                            app.details = ("land".to_owned(), land.id);
                         }
                     }
                 });

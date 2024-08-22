@@ -12,19 +12,19 @@ impl Default for MyApp {
     fn default() -> Self {
         Self {
             plants: vec![
-                Plant::new("🍎", "Apple", 2, 2.5),
-                Plant::new("🍚", "Rice", 6, 1.),
+                Plant::new(0, "🍎", "Apple", 2, 2.5),
+                Plant::new(1, "🍚", "Rice", 6, 1.),
             ],
             new_plant_name: String::from(""),
             field: vec![
-                vec![Land::new(10., 20.), Land::new(100., 20.)],
+                vec![Land::new(00, 10., 20.), Land::new(01, 100., 20.)],
                 vec![
-                    Land::new(10., 10.),
-                    Land::new(40., 40.),
-                    Land::new(10., 50.),
+                    Land::new(10, 10., 10.),
+                    Land::new(11, 40., 40.),
+                    Land::new(12, 10., 50.),
                 ],
             ],
-            details: String::from("Details about hovered items"),
+            details: (String::from("Details about hovered items"), 0),
         }
     }
 }

@@ -24,7 +24,7 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
 
                         // details
                         if button.hovered() {
-                            app.details = Plant::details(plant);
+                            app.details = (String::from("plant"), plant.id);
                         };
                         // remove this plant
                         if remove.clicked() {
@@ -43,7 +43,7 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                     );
 
                     if ui.button("➕").clicked() {
-                        let new_plant = Plant::new("🌲", &app.new_plant_name.as_str(), 1, 1.);
+                        let new_plant = Plant::new(app.plants.len(), "🌲", &app.new_plant_name.as_str(), 1, 1.);
                         app.plants.push(new_plant); // add new plant
                         app.new_plant_name = String::from(""); // clean
                     }
