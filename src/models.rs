@@ -101,6 +101,7 @@ impl Land {
                             .range(10..=300)
                             .suffix("m"),
                     );
+                    land.area = land.height * land.width; // update area
                     ui.label(format!("Area: {}m²", land.area));
                     ui.label(format!("Plant: {}{}", land.plant.emoji, land.plant.name));
                 });
