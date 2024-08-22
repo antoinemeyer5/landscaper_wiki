@@ -23,12 +23,13 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                         let remove = ui.button("➖");
 
                         // details
-                        if button.hovered() {
+                        if button.clicked() {
                             app.details = (String::from("plant"), plant.id);
                         };
                         // remove this plant
                         if remove.clicked() {
                             delete = true;
+                            app.details = (String::from("Details about hovered items"), 0); // reset
                         }
                     });
                     ui.separator();

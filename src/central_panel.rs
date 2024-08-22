@@ -14,9 +14,8 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                     for land in row {
                         let button =
                             ui.add_sized([land.width, land.height], egui::Button::new("🌾"));
-                        if button.hovered() {
-                            //app.details = (Land::details(land), 0);
-                            app.details = ("land".to_owned(), land.id);
+                        if button.clicked() {
+                            app.details = (String::from("land"), land.id);
                         }
                     }
                 });

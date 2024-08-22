@@ -36,17 +36,18 @@ impl Plant {
                     ui.heading("ℹ");
                 });
                 egui::ScrollArea::vertical().show(ui, |ui| {
+                    let index = app.plants.iter().position(|p| p.id == id).unwrap();
                     ui.label("🌱 Plant");
-                    ui.label(format!("Emoji: {}", app.plants[id].emoji));
-                    ui.label(format!("Name: {}", app.plants[id].name));
+                    ui.label(format!("Emoji: {}", app.plants[index].emoji));
+                    ui.label(format!("Name: {}", app.plants[index].name));
                     ui.add(
-                        egui::DragValue::new(&mut app.plants[id].quantity)
+                        egui::DragValue::new(&mut app.plants[index].quantity)
                             .prefix("Quantity: ")
                             .range(0..=10)
                             .suffix(" (per m²)"),
                     );
                     ui.add(
-                        egui::DragValue::new(&mut app.plants[id].price)
+                        egui::DragValue::new(&mut app.plants[index].price)
                             .prefix("Price: ")
                             .range(0..=10)
                             .suffix("$ (per unit)"),
