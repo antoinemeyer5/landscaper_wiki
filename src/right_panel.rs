@@ -19,6 +19,7 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                 .show_inside(ui, |ui| {
                     ui.vertical_centered(|ui| {
                         ui.heading("ℹ");
+                        ui.label(String::from("Try to click on ℹ or Land buttons"));
                     });
                 });
         }

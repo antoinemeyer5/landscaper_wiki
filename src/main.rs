@@ -16,7 +16,7 @@ impl Default for MyApp {
                 Plant::new(0, "🍎", "Apple", 2, 2.5),
                 Plant::new(1, "🍚", "Rice", 6, 1.),
             ],
-            new_plant_name: String::from(""),
+            new_plant: (String::from("🍅"), String::from("Tomato")),
             field: vec![
                 vec![Land::new(00, 10., 20.), Land::new(01, 100., 20.)],
                 vec![
@@ -25,7 +25,7 @@ impl Default for MyApp {
                     Land::new(12, 10., 50.),
                 ],
             ],
-            details: (String::from("Details about hovered items"), 0),
+            details: (String::from("nothing"), 0),
         }
     }
 }

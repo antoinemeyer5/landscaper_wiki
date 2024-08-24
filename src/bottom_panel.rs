@@ -1,6 +1,6 @@
 use egui::Ui;
 
-use crate::models::{MyApp, Plant};
+use crate::models::MyApp;
 
 pub fn display(app: &mut MyApp, ui: &mut Ui) {
     egui::TopBottomPanel::bottom("bottom_panel")

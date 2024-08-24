@@ -2,7 +2,7 @@ use egui::Ui;
 
 pub struct MyApp {
     pub plants: Vec<Plant>,
-    pub new_plant_name: String,
+    pub new_plant: (String, String), // emoji, name
     pub field: Vec<Vec<Land>>,
     pub details: (String, usize),
 }
