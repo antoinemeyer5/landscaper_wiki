@@ -5,6 +5,8 @@ mod bottom_panel;
 mod central_panel;
 mod left_panel;
 mod right_panel;
+mod plant;
+mod land;
 
 mod models;
 use models::{Land, MyApp, Plant};

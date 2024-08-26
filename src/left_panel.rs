@@ -39,6 +39,7 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                 });
 
                 // ADD
+                ui.label(String::from("Add:"));
                 ui.horizontal(|ui| {
                     // select
                     egui::ComboBox::from_label("")
@@ -62,8 +63,10 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                         });
 
                     // new name
-                    egui::TextEdit::singleline(&mut app.new_plant.1).desired_width(60.).char_limit(8).show(ui);
-
+                    egui::TextEdit::singleline(&mut app.new_plant.1)
+                        .desired_width(60.)
+                        .char_limit(8)
+                        .show(ui);
 
                     if ui.button("➕").clicked() {
                         let new_plant = Plant::new(
@@ -74,9 +77,7 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
                             1.,
                         );
                         app.plants.push(new_plant); // add new plant
-                                                    // clean
-                        app.new_plant.0 = String::from("🍇");
-                        app.new_plant.1 = String::from("Grape");
+                        app.new_plant.1 = String::from(""); // clean
                     }
                 });
             });

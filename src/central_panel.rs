@@ -12,8 +12,10 @@ pub fn display(app: &mut MyApp, ui: &mut Ui) {
             for row in &app.field {
                 ui.horizontal(|ui| {
                     for land in row {
-                        let button =
-                            ui.add_sized([land.width, land.height], egui::Button::new("🌾"));
+                        let button = ui.add_sized(
+                            [land.width, land.height],
+                            egui::Button::new(land.plant.emoji.clone()),
+                        );
                         if button.clicked() {
                             app.details = (String::from("land"), land.id);
                         }
