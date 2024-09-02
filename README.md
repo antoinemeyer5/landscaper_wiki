@@ -1,22 +1,10 @@
-# landscaper
-
-## Def
-Their job duties include planting seasonal flowers, trimming hedges,
-pruning trees, fertilizing plants, mowing grass and managing pests. Landscapers
-may also work with building contractors to construct garden walls, walkways and
-steps.
+# landscaper_wiki
 
 ## Idea
-Plant management application for your garden. Know when to harvest carrots,
-when to water tomatoes, tell us when you've planted tulips, know when to clean
-up strawberry cuttings, etc.
-
-## Modelisation
-A plant is on a plot of land. Several plots make up a field.
+Creator and viewer of plants.
 
 ## Stack
-Written in [Rust](https://www.rust-lang.org/) using
-[egui](https://www.egui.rs/).
+Written in [Rust](https://www.rust-lang.org/) using [egui](https://www.egui.rs/).
 
 ## Requirements
 ```bash
