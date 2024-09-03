@@ -10,14 +10,17 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
             ui.vertical_centered(|ui| {
                 ui.heading("plants");
             });
-
+            // vector with plants case
             for plant in app.plants.iter() {
                 let button = Plant::display(plant, ui);
+                // change selected
                 if button.clicked() {
-                    button.highlight();
-                    app.selected_plant.name = plant.name.clone();
-                    app.selected_plant.notes = plant.notes.clone();
+                    app.selected_plant = plant.id;
                 }
+            }
+            // empty vector case
+            if app.plants.len() == 0 {
+                ui.label("try to add one plant");
             }
         });
 }

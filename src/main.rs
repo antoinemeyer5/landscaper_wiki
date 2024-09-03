@@ -16,7 +16,7 @@ struct AppLandscaperWiki {
     popup_add: PopUp,
     popup_infos: PopUp,
     new_plant: Plant,
-    selected_plant: Plant,
+    selected_plant: usize,
 }
 
 impl AppLandscaperWiki {
@@ -36,7 +36,7 @@ impl Default for AppLandscaperWiki {
             popup_add: PopUp::new("add", false),
             popup_infos: PopUp::new("infos", false),
             new_plant: Plant::new("", ""),
-            selected_plant: Plant::new("void", "void"),
+            selected_plant: 0,
         }
     }
 }
