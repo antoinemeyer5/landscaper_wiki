@@ -12,16 +12,15 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
                     ui.heading("landscaper_wiki: creator and viewer of plants");
                     ui.horizontal(|ui| {
                         ui.label("utils:");
-                        ui.button("import"); // TODO
                         ui.button("export"); // TODO
                         if ui.button("add").clicked() {
-                            app.popup_add.open = true;
+                            app.popup_add.open = !app.popup_add.open;
                         };
                     });
                     ui.horizontal(|ui| {
                         ui.label("more:");
                         if ui.button("infos").clicked() {
-                            app.popup_infos.open = true;
+                            app.popup_infos.open = !app.popup_infos.open;
                         };
                         if ui.button("exit").clicked() {
                             std::process::exit(0);

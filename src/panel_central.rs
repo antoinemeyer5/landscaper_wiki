@@ -9,10 +9,12 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
 
             let plant = &app.selected_plant;
             if plant.name != "void" {
-                ui.label(format!("name: {}", plant.name));
-                ui.label(format!("notes: {}", plant.notes));
+                ui.vertical(|ui| {
+                    ui.label(format!("name: {}", plant.name));
+                    ui.label(format!("notes: {}", plant.notes));
+                });
             } else {
-                return;
+                ui.label("display plant details by clicking on the name on the left");
             }
         });
     });

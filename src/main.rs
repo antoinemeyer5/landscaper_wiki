@@ -43,7 +43,7 @@ impl Default for AppLandscaperWiki {
 
 impl eframe::App for AppLandscaperWiki {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        ctx.set_pixels_per_point(1.5);
+        ctx.set_pixels_per_point(2.5);
         egui::CentralPanel::default().show(ctx, |ui| {
             // panels
             panel_top::display(self, ui);

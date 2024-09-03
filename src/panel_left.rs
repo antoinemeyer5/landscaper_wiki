@@ -5,7 +5,7 @@ use crate::{plant::Plant, AppLandscaperWiki};
 pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
     egui::SidePanel::left("panel_left")
         .resizable(false)
-        .exact_width(250.0)
+        .exact_width(180.0)
         .show_inside(ui, |ui| {
             ui.vertical_centered(|ui| {
                 ui.heading("plants");
