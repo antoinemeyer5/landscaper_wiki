@@ -6,15 +6,17 @@ pub struct Plant {
     pub id: usize,
     pub name: String,
     pub notes: String,
+    pub price: f32,
 }
 
 impl Plant {
-    pub fn new(name: &str, notes: &str) -> Self {
+    pub fn new(name: &str, notes: &str, price: f32) -> Self {
         static COUNTER: AtomicUsize = AtomicUsize::new(1);
         Self {
             id: COUNTER.fetch_add(1, Ordering::Relaxed),
             name: String::from(name),
             notes: String::from(notes),
+            price,
         }
     }
 

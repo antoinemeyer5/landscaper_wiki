@@ -19,6 +19,7 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
                     ui.label(format!("id: {}", plant.id));
                     ui.label(format!("name: {}", plant.name));
                     ui.label(format!("notes: {}", plant.notes));
+                    ui.label(format!("price: {} $/lbs", plant.price));
                 });
                 // remove
                 ui.with_layout(egui::Layout::right_to_left(egui::Align::Max), |ui| {

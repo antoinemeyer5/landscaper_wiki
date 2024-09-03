@@ -29,13 +29,13 @@ impl Default for AppLandscaperWiki {
     fn default() -> Self {
         Self {
             plants: vec![
-                Plant::new("Apple", "Great round fruit"),
-                Plant::new("Tomato", "Delicious edible berry"),
-                Plant::new("Rice", "Amazing cereal grain"),
+                Plant::new("Apple", "Great round fruit", 5.99),
+                Plant::new("Tomato", "Delicious edible berry", 14.26),
+                Plant::new("Rice", "Amazing cereal grain", 2.34),
             ],
             popup_add: PopUp::new("add", false),
             popup_infos: PopUp::new("infos", false),
-            new_plant: Plant::new("", ""),
+            new_plant: Plant::new("", "", 0.),
             selected_plant: 0,
         }
     }
