@@ -35,7 +35,7 @@ impl Default for AppLandscaperWiki {
             ],
             popup_add: PopUp::new("add", false),
             popup_infos: PopUp::new("infos", false),
-            new_plant: Plant::new("", "", 0.),
+            new_plant: Plant::reset(),
             selected_plant: 0,
         }
     }

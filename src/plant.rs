@@ -23,4 +23,13 @@ impl Plant {
     pub fn display(plant: &Plant, ui: &mut Ui) -> Response {
         return ui.button(format!("name: {}", plant.name));
     }
+
+    pub fn reset() -> Plant  {
+        return Plant {
+            id: 0,
+            name: "".to_string(),
+            notes: "".to_string(),
+            price: 0.,
+        };
+    }
 }

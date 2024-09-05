@@ -22,15 +22,18 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
                 ui.label("price");
                 ui.add(egui::DragValue::new(&mut app.new_plant.price).suffix(" $/lbs"));
             });
-
             // add new plant
             ui.vertical_centered(|ui| {
                 if ui.button("add").clicked() {
+                    // create new plant
                     let new_name = &app.new_plant.name;
                     let new_notes = &app.new_plant.notes;
                     let new_price = &app.new_plant.price;
                     if new_name != "" && new_notes != "" {
+                        // add new plant
                         app.plants.push(Plant::new(new_name, new_notes, *new_price));
+                        // reset fields
+                        app.new_plant = Plant::reset();
                     }
                 }
             });
