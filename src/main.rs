@@ -57,11 +57,12 @@ impl eframe::App for AppLandscaperWiki {
 }
 
 fn main() -> eframe::Result<()> {
+    // options
     let native_options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default().with_inner_size((800.0, 600.0)),
         ..eframe::NativeOptions::default()
     };
-
+    // runner
     eframe::run_native(
         AppLandscaperWiki::name(),
         native_options,

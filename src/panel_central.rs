@@ -25,7 +25,8 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
                 ui.with_layout(egui::Layout::right_to_left(egui::Align::Max), |ui| {
                     if ui.button("remove").clicked() {
                         app.plants.retain(|value| value.id != select_id);
-                        app.selected_plant = 0; // clean description
+                        // reset description
+                        app.selected_plant = 0;
                     }
                 });
             } else {
