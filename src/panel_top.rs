@@ -1,6 +1,6 @@
 use egui::Ui;
 
-use crate::AppLandscaperWiki;
+use crate::{plant::Plant, AppLandscaperWiki};
 
 pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
     egui::TopBottomPanel::top("panel_top")
@@ -10,13 +10,22 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
             egui::ScrollArea::vertical().show(ui, |ui| {
                 ui.vertical_centered(|ui| {
                     ui.heading("landscaper_wiki: creator and viewer of plants");
+                    // utils buttons
                     ui.horizontal(|ui| {
                         ui.label("utils:");
-                        ui.button("export"); // TODO
+                        // export plants
+                        if ui.button("export").clicked() {
+                            let export = Plant::export(&app.plants);
+                            match export {
+                                Ok(()) => println!("Export ok"),
+                                Err(error) => println!("Export ko: {}", error),
+                            }
+                        }
                         if ui.button("add").clicked() {
                             app.popup_add.open = !app.popup_add.open;
                         };
                     });
+                    // more buttons
                     ui.horizontal(|ui| {
                         ui.label("more:");
                         if ui.button("infos").clicked() {
