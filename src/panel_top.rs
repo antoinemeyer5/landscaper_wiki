@@ -21,6 +21,18 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
                                 Err(error) => println!("Export ko: {}", error),
                             }
                         }
+                        // import plants
+                        if ui.button("import").clicked() {
+                            // reset description
+                            app.selected_plant = 0;
+                            // actual import
+                            let import = Plant::import();
+                            match import {
+                                Ok(res) => app.plants = res,
+                                Err(error) => println!("Import ko: {}", error),
+                            }
+                        }
+                        // add
                         if ui.button("add").clicked() {
                             app.popup_add.open = !app.popup_add.open;
                         };
