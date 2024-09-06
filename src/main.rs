@@ -28,11 +28,7 @@ impl AppLandscaperWiki {
 impl Default for AppLandscaperWiki {
     fn default() -> Self {
         Self {
-            plants: vec![
-                Plant::new("Apple", "Great round fruit", 5.99),
-                Plant::new("Tomato", "Delicious edible berry", 14.26),
-                Plant::new("Rice", "Amazing cereal grain", 2.34),
-            ],
+            plants: vec![],
             popup_add: PopUp::new("add", false),
             popup_infos: PopUp::new("infos", false),
             new_plant: Plant::reset(),

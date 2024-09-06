@@ -28,7 +28,10 @@ pub fn display(app: &mut AppLandscaperWiki, ui: &mut Ui) {
                             // actual import
                             let import = Plant::import();
                             match import {
-                                Ok(res) => app.plants = res,
+                                Ok(res) => {
+                                    app.plants = res;
+                                    println!("Import ok");
+                                }
                                 Err(error) => println!("Import ko: {}", error),
                             }
                         }
